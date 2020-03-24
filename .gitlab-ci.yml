@@ -15,7 +15,7 @@ tailwind_build:
   stage: build
   script: 
     - npm install --progress=false
-    - npx tailwind build src/assets/styles.css -o src/dist/main.css
+    - npx tailwind build src/css/styles.css -o src/dist/main.css
   artifacts:
     expire_in: 1 day
     paths: 
