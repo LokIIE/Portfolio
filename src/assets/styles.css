@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    min-height: 100%;
+    font-family: "Varela", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #faebd7;
+}
+
+.strip-wrapper {
+    border: none;
+    overflow: hidden;
+}
+
+.gradiant-base {
+    height: 5px;
+    filter: blur(1px);
+    background: repeating-linear-gradient(-45deg, #f22 0%,#22f 20%,#2ff 40%, #2f2 60%, #ff2 80%, #f22 100%);
+}
+
+.strip {
+    @apply gradiant-base;
+    width: 1000px;
+}
+
+.strip-big {
+    @apply gradiant-base;
+    width: 2000px;
+}
+
+.title-box {
+    @apply mx-auto overflow-hidden;
+}
+
+@variants animated {
+    .strip {
+        @apply gradiant-base;
+        width: 1000px;
+        animation: parade 5s infinite linear;
+    }
+
+    .strip-big {
+        @apply gradiant-base;
+        width: 2000px;
+        animation: big-parade 10s infinite linear;
+    }
+    
+    .title-box {
+        @apply mx-auto overflow-hidden;
+        animation: open-box 2s;
+    }
+}
+
+@keyframes parade {
+    from {
+        background-position: -1000px;
+    }
+    to {
+        background-position: 0;
+    }
+}
+
+@keyframes big-parade {
+    from {
+        background-position: -2000px;
+    }
+    to {
+        background-position: 0;
+    }
+}
+
+@keyframes open-box {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    50% {
+        width: 50%;
+    }
+    100% {
+        height: initial;
+    }
+}
+
+
+/***** Double arrow icon *****/
+a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+.round {
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 20%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#cta {
+    width: 100%;
+    position: absolute;
+}
+
+#cta .arrow {
+    left: 30%;
+}
+
+.arrow {
+    position: absolute;
+    bottom: 0;
+    margin-left: 0;
+    width: 12px;
+    height: 12px;
+    top: 12px;
+    mask-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==');
+    background-color: black;
+}
+.second {
+    margin-left: 8px;
+}
+
+@keyframes bounceAlpha {
+    0% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+    }
+    25% {
+        opacity: 0;
+        transform: translateX(10px) scale(0.9);
+    }
+    26% {
+        opacity: 0;
+        transform: translateX(-10px) scale(0.9);
+    }
+    55% {
+        opacity: 1;
+        transform: translateX(0px) scale(1);
+    }
+}
+
+.round .arrow {
+    animation-name: bounceAlpha;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.round .arrow.first {
+    animation-name: bounceAlpha;
+    animation-duration: 1.4s;
+    animation-delay: 0.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/***** End double arrow icon *****/
+
+.extlink, .extlink svg {
+    width: 32px;
+    height: 32px;
+    margin: 0 8px;
+    transition: transform 0.2s;
+}
+
+.extlink:hover {
+    transform: scale(1.2);
+}

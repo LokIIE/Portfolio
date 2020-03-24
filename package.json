@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Custom portfolio for my projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://VSCode:Gz6ggwRqsnyuzQ5dXH4V@gitlab.com/LokIIE/portfolio.git"
+  },
+  "author": "Srivatsan Magadevane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/LokIIE/portfolio/issues"
+  },
+  "homepage": "https://gitlab.com/LokIIE/portfolio#readme",
+  "dependencies": {
+    "tailwindcss": "^1.2.0"
+  }
+}
