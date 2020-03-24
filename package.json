@@ -18,5 +18,9 @@
   "homepage": "https://gitlab.com/LokIIE/portfolio#readme",
   "dependencies": {
     "tailwindcss": "^1.2.0"
+  },
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
