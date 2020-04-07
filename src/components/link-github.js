@@ -3,7 +3,7 @@
     const template = document.createElement('template');
     template.innerHTML = `
         <style>
-            svg {
+            :host, svg {
                 width: 32px;
                 height: 32px;
             }
@@ -11,6 +11,10 @@
             svg:hover {
                 transition: transform 0.2s;
                 transform: scale(1.2);
+            }
+
+            a {
+                text-decoration: none;
             }
         </style>
         <a href="#" target="_blank">

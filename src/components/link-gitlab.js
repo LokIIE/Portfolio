@@ -3,7 +3,7 @@
     const template = document.createElement('template');
     template.innerHTML = `
         <style>
-            svg {
+            :host, svg {
                 width: 32px;
                 height: 32px;
             }
@@ -12,8 +12,12 @@
                 transition: transform 0.2s;
                 transform: scale(1.2);
             }
+
+            a {
+                text-decoration: none;
+            }
         </style>
-        <a href="#" target="_blank">
+        <a class="external-link" href="#" target="_blank">
             <svg width="24" height="24" class="tanuki-logo" viewBox="0 0 36 36">
                 <path class="tanuki-shape tanuki-left-ear" fill="#e24329"
                     d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>

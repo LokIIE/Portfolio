@@ -4,100 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="../components/link-linkedin.js"></script>
     <script src="../components/link-github.js"></script>
     <script src="../components/link-gitlab.js"></script>
+    <script src="../components/portfolio-header.js"></script>
     <link rel="stylesheet" href="../dist/main.css">
     <link rel="stylesheet" href="../css/animate.min.css">
 </head>
 
 <body>
-    <header class="sticky flex items-center justify-between p-4 bg-gray-800">
-        <div>
-            <button type="button" class="block text-gray-500 focus:text-white focus:outline-none">
-                Menu
-            </button>
-        </div>
-        <h2 class="text-white text-xl">
-            Portfolio
-        </h2>
-        <div>
-            <img class="h-8" src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=80&q=80" alt="Portfolio">
-        </div>
-    </header>
-    <div class="flex flex-col lg:flex-row">
-        <div class="summary box-border h-full border-b lg:w-1/2 lg:border-b-0 border-black">
-            <img class="w-full object-fill bg-black"
-                src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80">
-            <div class="sticky">
-                <div
-                    class="absolute w-full px-4 pb-4 flex flex-col items-center bottom-0 animated slideInUp bg-lightsmoke-75 lg:relative lg:bg-transparent">
-                    <h3 class="pt-2 text-center text-4xl font-bold">
-                        Portfolio
-                    </h3>
-                    <div class="project-links">
-                        <link-github href="https://github.com/LokIIE/portfolio"></link-github>
-                        <link-gitlab href="https://gitlab.com/LokIIE/portfolio"></link-gitlab>
-                    </div>
-                    <ul class="stack">
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>TailwindCSS</li>
-                        <li>NPM</li>
-                        <li>Webpack</li>
-                        <li>Gitlab CI</li>
-                    </ul>
+    <portfolio-header>Portfolio</portfolio-header>
+    <div class="flex flex-col">
+        <div class="summary box-border border-b bg-darksmoke-10 border-black lg:flex lg:flex-row lg:justify-evenly">
+            <img class="object-contain mx-auto" src="../assets/img/sc-portfolio-1.png">
+            <div
+                class="summary-inner w-full absolute animated fadeInUp bottom-0 bg-lightsmoke-75 lg:relative lg:w-2/3 lg:my-auto lg:rounded-lg lg:shadow-md lg:items-center lg:w-1/4 xl:w-1/2">
+                <h3 class="pt-2 text-center text-4xl font-bold">
+                    Portfolio
+                </h3>
+                <div class="project-links">
+                    <link-github href="https://github.com/LokIIE/portfolio"></link-github>
+                    <link-gitlab href="https://gitlab.com/LokIIE/portfolio"></link-gitlab>
                 </div>
+                <ul class="stack-list">
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>TailwindCSS</li>
+                    <li>NPM</li>
+                    <li>Webpack</li>
+                    <li>Gitlab CI</li>
+                </ul>
             </div>
         </div>
-        <div class="project lg:w-1/2 px-8 py-4 animated fadeInRight">
+        <div class="project lg:w-full px-8 py-4 animated slideInLeft">
             <div>
-
                 Mollit exercitation aliqua culpa ut magna esse cupidatat. Fugiat ullamco deserunt deserunt cupidatat in
                 Lorem. Anim elit eiusmod cillum pariatur elit minim pariatur sint fugiat enim veniam sit. Excepteur ea
-            ipsum esse eiusmod nisi ea minim eu nisi laboris. Ea exercitation in et fugiat ad dolor deserunt
-            consequat.
-            
-            Elit ullamco consectetur nisi quis tempor veniam non aliqua. Qui in ipsum reprehenderit quis anim
-            incididunt et aliquip. Aliqua eiusmod amet aliquip eu dolor pariatur ipsum ad ea anim cillum. Enim
-            laboris mollit Lorem dolor duis officia.
-            
-            Exercitation consectetur enim voluptate ipsum quis esse magna consectetur velit officia sit labore.
-            Pariatur dolor laboris tempor exercitation elit. Aliqua consequat qui ut irure laborum est exercitation
-            fugiat Lorem Lorem aliqua. Fugiat ea aute ex anim proident.
-            
-            Sunt anim cillum consectetur ullamco duis irure commodo amet elit proident occaecat culpa ipsum quis.
-            Laboris reprehenderit laborum consectetur ut enim occaecat fugiat reprehenderit nostrud magna. Pariatur
-            consectetur cillum velit elit. Id ut magna proident et enim. Fugiat ut proident adipisicing proident et.
-            Tempor amet labore dolore quis dolore adipisicing aliqua et nisi. Ex ea in sit ut elit incididunt aute
-            exercitation mollit Lorem pariatur.
-            Mollit exercitation aliqua culpa ut magna esse cupidatat. Fugiat ullamco deserunt deserunt cupidatat in
-            Lorem. Anim elit eiusmod cillum pariatur elit minim pariatur sint fugiat enim veniam sit. Excepteur ea
-            ipsum esse eiusmod nisi ea minim eu nisi laboris. Ea exercitation in et fugiat ad dolor deserunt
-            consequat.
-            
-            Elit ullamco consectetur nisi quis tempor veniam non aliqua. Qui in ipsum reprehenderit quis anim
-            incididunt et aliquip. Aliqua eiusmod amet aliquip eu dolor pariatur ipsum ad ea anim cillum. Enim
-            laboris mollit Lorem dolor duis officia.
-            
-            Exercitation consectetur enim voluptate ipsum quis esse magna consectetur velit officia sit labore.
-            Pariatur dolor laboris tempor exercitation elit. Aliqua consequat qui ut irure laborum est exercitation
-            fugiat Lorem Lorem aliqua. Fugiat ea aute ex anim proident.
-            
-            Sunt anim cillum consectetur ullamco duis irure commodo amet elit proident occaecat culpa ipsum quis.
-            Laboris reprehenderit laborum consectetur ut enim occaecat fugiat reprehenderit nostrud magna. Pariatur
-            consectetur cillum velit elit. Id ut magna proident et enim. Fugiat ut proident adipisicing proident et.
-            Tempor amet labore dolore quis dolore adipisicing aliqua et nisi. Ex ea in sit ut elit incididunt aute
-            exercitation mollit Lorem pariatur.
-            Mollit exercitation aliqua culpa ut magna esse cupidatat. Fugiat ullamco deserunt deserunt cupidatat in
-            Lorem. Anim elit eiusmod cillum pariatur elit minim pariatur sint fugiat enim veniam sit. Excepteur ea
-            ipsum esse eiusmod nisi ea minim eu nisi laboris. Ea exercitation in et fugiat ad dolor deserunt
-            consequat.
-            
-            Elit ullamco consectetur nisi quis tempor veniam non aliqua. Qui in ipsum reprehenderit quis anim
-            incididunt et aliquip. Aliqua eiusmod amet aliquip eu dolor pariatur ipsum ad ea anim cillum. Enim
-            laboris mollit Lorem dolor duis officia.
+                ipsum esse eiusmod nisi ea minim eu nisi laboris. Ea exercitation in et fugiat ad dolor deserunt
+                consequat.
+
+                Elit ullamco consectetur nisi quis tempor veniam non aliqua. Qui in ipsum reprehenderit quis anim
+                incididunt et aliquip. Aliqua eiusmod amet aliquip eu dolor pariatur ipsum ad ea anim cillum. Enim
+                laboris mollit Lorem dolor duis officia.
+
+                Exercitation consectetur enim voluptate ipsum quis esse magna consectetur velit officia sit labore.
+                Pariatur dolor laboris tempor exercitation elit. Aliqua consequat qui ut irure laborum est exercitation
+                fugiat Lorem Lorem aliqua. Fugiat ea aute ex anim proident.
+
+                Sunt anim cillum consectetur ullamco duis irure commodo amet elit proident occaecat culpa ipsum quis.
+                Laboris reprehenderit laborum consectetur ut enim occaecat fugiat reprehenderit nostrud magna. Pariatur
+                consectetur cillum velit elit. Id ut magna proident et enim. Fugiat ut proident adipisicing proident et.
+                Tempor amet labore dolore quis dolore adipisicing aliqua et nisi. Ex ea in sit ut elit incididunt aute
+                exercitation mollit Lorem pariatur.
+                Mollit exercitation aliqua culpa ut magna esse cupidatat. Fugiat ullamco deserunt deserunt cupidatat in
+                Lorem. Anim elit eiusmod cillum pariatur elit minim pariatur sint fugiat enim veniam sit. Excepteur ea
+                ipsum esse eiusmod nisi ea minim eu nisi laboris. Ea exercitation in et fugiat ad dolor deserunt
+                consequat.
+
+                Elit ullamco consectetur nisi quis tempor veniam non aliqua. Qui in ipsum reprehenderit quis anim
+                incididunt et aliquip. Aliqua eiusmod amet aliquip eu dolor pariatur ipsum ad ea anim cillum. Enim
+                laboris mollit Lorem dolor duis officia.
+
+                Exercitation consectetur enim voluptate ipsum quis esse magna consectetur velit officia sit labore.
+                Pariatur dolor laboris tempor exercitation elit. Aliqua consequat qui ut irure laborum est exercitation
+                fugiat Lorem Lorem aliqua. Fugiat ea aute ex anim proident.
+
+                Sunt anim cillum consectetur ullamco duis irure commodo amet elit proident occaecat culpa ipsum quis.
+                Laboris reprehenderit laborum consectetur ut enim occaecat fugiat reprehenderit nostrud magna. Pariatur
+                consectetur cillum velit elit. Id ut magna proident et enim. Fugiat ut proident adipisicing proident et.
+                Tempor amet labore dolore quis dolore adipisicing aliqua et nisi. Ex ea in sit ut elit incididunt aute
+                exercitation mollit Lorem pariatur.
+                Mollit exercitation aliqua culpa ut magna esse cupidatat. Fugiat ullamco deserunt deserunt cupidatat in
+                Lorem. Anim elit eiusmod cillum pariatur elit minim pariatur sint fugiat enim veniam sit. Excepteur ea
+                ipsum esse eiusmod nisi ea minim eu nisi laboris. Ea exercitation in et fugiat ad dolor deserunt
+                consequat.
+
+                Elit ullamco consectetur nisi quis tempor veniam non aliqua. Qui in ipsum reprehenderit quis anim
+                incididunt et aliquip. Aliqua eiusmod amet aliquip eu dolor pariatur ipsum ad ea anim cillum. Enim
+                laboris mollit Lorem dolor duis officia.
+            </div>
         </div>
-    </div>
     </div>
 </body>
 
