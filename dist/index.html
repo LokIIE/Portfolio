@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta name="title" content="Srivatsan Magadevane - Portfolio">
     <meta name="description"
         content="Bonjour, je suis Srivatsan, diplômé de l'ENSIIE et développeur fullstack en région parisienne depuis 5 ans">
     <meta name="keywords" content="Srivatsan, Magadevane, fullstack, développeur, portfolio, France, web, ENSIIE">
-    <script src="components/link-github.js"></script>
-    <script src="components/link-gitlab.js"></script>
-    <script src="components/link-linkedin.js"></script>
+    <title>Srivatsan Magadevane - Portfolio</title>
     <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet" preload>
-    <link rel="stylesheet" href="dist/main.css">
+    <link rel="import" href="components/portfolio-header.html" preload>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="assets/js/link-linkedin.js" preload></script>
+    <script src="assets/js/link-github.js" preload></script>
+    <script src="assets/js/link-gitlab.js" preload></script>
 </head>
 
 <body class="relative">
@@ -26,9 +28,11 @@
                 Portfolio
             </div>
         </div>
-        <a href="pages/list.html" class="btn-arrows flex-1">
-            <span class="arrow first next"></span>
-            <span class="arrow second next"></span>
+        <a href="./list.html" class="btn-arrows flex-1">
+            <button aria-label="Show projects">
+                <span class="arrow first next"></span>
+                <span class="arrow second next"></span>
+            </button>
         </a>
         <div class="absolute w-2/5 right-0 bottom-0">
             <div class="strip-wrapper pb-48">

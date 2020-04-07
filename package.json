@@ -2,37 +2,51 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "Custom portfolio for my projects",
-  "main": "index.js",
+  "main": "./dist/main.js",
+  "paths": {
+    "src": {
+      "css": "./src/css/"
+    },
+    "dist": {
+      "base": "./dist/",
+      "css": "./dist/css/"
+    },
+    "config": {
+      "tailwind": "./tailwind.js"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "postcss src/css/theme.css -o dist/assets/css/main.css",
+    "prod": "cross-env NODE_ENV=production postcss src/css/theme.css -o dist/assets/css/main.css"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://VSCode:Gz6ggwRqsnyuzQ5dXH4V@gitlab.com/LokIIE/portfolio.git"
+    "url": "git+https://gitlab.com/LokIIE/portfolio"
   },
-  "author": "Srivatsan Magadevane",
-  "license": "ISC",
+  "author": "Srivatsan Magadevane <srimaga01@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://gitlab.com/LokIIE/portfolio/issues"
   },
-  "homepage": "https://gitlab.com/LokIIE/portfolio#readme",
+  "homepage": "http://magadeva.iiens.net/portfolio",
   "dependencies": {
-    "animate.css": "^3.7.2",
     "tailwindcss": "^1.2.0"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
-    "autoprefixer": "^9.7.5",
+    "autoprefixer": "^9.7.6",
     "cross-env": "^7.0.2",
-    "css-loader": "^3.4.2",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "html-webpack-plugin": "^4.0.2",
+    "cssnano": "^4.1.10",
     "postcss": "^7.0.27",
-    "postcss-loader": "^3.0.0",
-    "style-loader": "^1.1.3",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
-  }
+    "postcss-cli": "^7.1.0"
+  },
+  "keywords": [
+    "tailwindcss",
+    "portfolio",
+    "projects",
+    "developer portfolio",
+    "web developer portfolio",
+    "webpack"
+  ]
 }

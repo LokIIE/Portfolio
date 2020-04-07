@@ -15,18 +15,18 @@ tailwind_build:
   stage: build
   script: 
     - npm install --progress=false
-    - npx tailwind build src/css/styles.css -o src/dist/main.css
+    - npm run prod
   artifacts:
     expire_in: 1 day
     paths: 
-      - src/dist
+      - dist
 
 deploy:
     stage: deploy
     script:
       - sshpass -V
       - export SSHPASS=$IIENS_PASSWD
-      - sshpass -e scp -o StrictHostKeyChecking=no -r ./src/* magadeva2011@tom.iiens.net:~/html/portfolio
+      - sshpass -e scp -o StrictHostKeyChecking=no -r ./dist/* magadeva2011@tom.iiens.net:~/html/portfolio
       - echo "Deployment complete"
     # specify environment this job is using
     environment:
@@ -35,4 +35,3 @@ deploy:
     # only run on these branches
     only:
       - master
-      - MVP
