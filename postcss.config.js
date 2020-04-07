@@ -1,21 +1,19 @@
-// postcss.config.js
-const purgecss = require('@fullhuman/postcss-purgecss')({
+// config to only add prefixes and removing comments in production
+const purgecss = require('@fullhuman/postcss-purgecss')
+const cssnano = require('cssnano')
 
-    // Specify the paths to all of the template files in your project 
-    content: [
-      './src/**/*.html'
-    ],
-  
-    // Include any special characters you're using in this regular expression
-    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-  })
-  
-  module.exports = {
-    plugins: [
-      require('tailwindcss'),
-      require('autoprefixer'),
-      ...process.env.NODE_ENV === 'production'
-        ? [purgecss]
-        : []
-    ]
-  }
+module.exports = {
+  plugins: [
+    require('tailwindcss'),
+    process.env.NODE_ENV === 'production' ? require('autoprefixer') : null,
+    process.env.NODE_ENV === 'production' ?
+    cssnano({
+      preset: 'default'
+    }) :
+    null,
+    purgecss({
+      content: ['./dist/**/*.html', './src/**/*.css', './src/**/*.js'],
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    })
+  ]
+}
