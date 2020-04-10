@@ -1,4 +1,4 @@
-import { LitElement, html } from "./../../node_modules/lit-element/lit-element";
+import { LitElement, html } from "lit-element";
 
 class LinkGithub extends LitElement {
 

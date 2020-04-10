@@ -17,8 +17,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "postcss src/css/theme.css -o dist/assets/css/main.css",
-    "prod": "cross-env NODE_ENV=production postcss src/css/theme.css -o dist/assets/css/main.css"
+    "tailwind": "npx tailwind build src/css/main.pcss -o dist/assets/main.css",
+    "postcss-dev": "postcss src/css/main.pcss -o dist/assets/main.css",
+    "postcss-prod": "cross-env NODE_ENV=production postcss src/css/main.pcss -o dist/assets/main.css",
+    "build-parcel": "parcel build src/index.html --no-cache --public-url ./"
   },
   "repository": {
     "type": "git",
@@ -32,7 +34,7 @@
   "homepage": "http://magadeva.iiens.net/portfolio",
   "dependencies": {
     "lit-element": "^2.3.1",
-    "tailwindcss": "^1.2.0"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
@@ -40,8 +42,10 @@
     "autoprefixer": "^9.7.6",
     "cross-env": "^7.0.2",
     "cssnano": "^4.1.10",
+    "parcel-bundler": "^1.12.4",
     "postcss": "^7.0.27",
-    "postcss-cli": "^7.1.0"
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.2.0"
   },
   "keywords": [
     "tailwindcss",

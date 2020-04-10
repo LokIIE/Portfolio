@@ -15,7 +15,7 @@ tailwind_build:
   stage: build
   script: 
     - npm install --progress=false
-    - npm run prod
+    - npm run postcss-prod
   artifacts:
     expire_in: 1 day
     paths: 
