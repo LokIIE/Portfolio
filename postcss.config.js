@@ -12,7 +12,7 @@ module.exports = {
     }) :
     null,
     purgecss({
-      content: ['./dist/**/*.html', './dist/**/*.js', './src/**/*.css', './src/**/*.js'],
+      content: ['./src/**/*.html', './src/**/*.css', './src/**/*.js'],
       defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
     })
   ]
