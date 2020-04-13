@@ -1,29 +1,80 @@
 image: node:latest
 
 stages:
-  - build
-  - deploy
+  - Prepare
+  - Test build methods
+  - Clean build tests
+  - Build
+  - Deploy
 
 cache:
   paths:
-    - node_modules/
+    - node_modules
     
-before_script:
-  - apt-get update -qq && apt-get install -y -qq sshpass
-
-tailwind_build: 
-  stage: build
-  script: 
+npm_install:
+  stage: Prepare
+  script:
     - npm install --progress=false
+
+build_tailwind: 
+  stage: Test build methods
+  script: 
+    - npm run tailwind
+  artifacts:
+    expire_in: 1 day
+    paths: 
+      - dist
+  except:
+    - master
+
+build_postcss: 
+  stage: Test build methods
+  script: 
     - npm run postcss-prod
   artifacts:
     expire_in: 1 day
     paths: 
       - dist
+  except:
+    - master
+
+build_parcel: 
+  stage: Test build methods
+  script: 
+    - npm run build-parcel
+  artifacts:
+    expire_in: 1 day
+    paths: 
+      - dist
+  except:
+    - master
+
+clean_build_tests: 
+  stage: Clean build tests
+  dependencies: 
+    - build_tailwind
+    - build_postcss
+    - build_parcel
+  script: 
+    - rm -rf dist
+  except: 
+    - master
+
+build: 
+  stage: Build
+  script: 
+    - npm run build-parcel
+  artifacts:
+    expire_in: 1 day
+    paths: 
+      - dist
+  only:
+    - master
 
 deploy:
-    stage: deploy
+    stage: Deploy
     script:
+      - apt-get update -qq && apt-get install -y -qq sshpass
       - sshpass -V
       - export SSHPASS=$IIENS_PASSWD
       - sshpass -e scp -o StrictHostKeyChecking=no -r ./dist/* magadeva2011@tom.iiens.net:~/html/portfolio
