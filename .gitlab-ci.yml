@@ -3,7 +3,7 @@ image: node:latest
 stages:
   - Prepare
   - Test build methods
-  - Clean build tests
+#  - Clean build tests
   - Build
   - Deploy
 
@@ -41,7 +41,7 @@ build_postcss:
 build_parcel: 
   stage: Test build methods
   script: 
-    - npm run build-parcel
+    - npm run parcel
   artifacts:
     expire_in: 1 day
     paths: 
@@ -49,16 +49,28 @@ build_parcel:
   except:
     - master
 
-clean_build_tests: 
-  stage: Clean build tests
-  dependencies: 
-    - build_tailwind
-    - build_postcss
-    - build_parcel
+build_webpack: 
+  stage: Test build methods
   script: 
-    - rm -rf dist
-  except: 
+    - npm run webpack-prod
+  artifacts:
+    expire_in: 1 day
+    paths: 
+      - dist
+  except:
     - master
+
+#clean_build_tests: 
+#  stage: Clean build tests
+#  dependencies: 
+#    - build_tailwind
+#    - build_parcel
+#    - build_postcss
+#    - build_webpack
+#  script: 
+#    - rm -rf dist
+#  except: 
+#    - master
 
 build: 
   stage: Build

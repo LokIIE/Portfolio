@@ -2,25 +2,16 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "Custom portfolio for my projects",
-  "main": "./dist/main.js",
-  "paths": {
-    "src": {
-      "css": "./src/css/"
-    },
-    "dist": {
-      "base": "./dist/",
-      "css": "./dist/css/"
-    },
-    "config": {
-      "tailwind": "./tailwind.js"
-    }
-  },
+  "main": "./dist/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwind": "npx tailwind build src/css/main.pcss -o dist/assets/main.css",
-    "postcss-dev": "postcss src/css/main.pcss -o dist/assets/main.css",
-    "postcss-prod": "cross-env NODE_ENV=production postcss src/css/main.pcss -o dist/assets/main.css",
-    "build-parcel": "parcel build src/index.html --no-cache --public-url ./"
+    "tailwind": "npx tailwind build src/css/main.pcss -o dist/css/main.css",
+    "postcss-dev": "postcss src/css/main.pcss -o dist/css/main.css",
+    "postcss-prod": "cross-env NODE_ENV=production postcss src/css/main.pcss -o dist/css/main.css",
+    "parcel-dev": "echo \"parcel uses production as target per default, use command 'npm run parcel'",
+    "parcel": "parcel build src/index.html --no-cache --no-source-maps --public-url .",
+    "webpack-dev": "webpack && rm dist/main.pcss && truncate -s 0 dist/main.js",
+    "webpack-prod": "cross-env NODE_ENV=production webpack && rm dist/main.pcss && truncate -s 0 dist/main.js"
   },
   "repository": {
     "type": "git",
@@ -40,18 +31,32 @@
     "@fullhuman/postcss-purgecss": "^2.1.0",
     "@webcomponents/webcomponentsjs": "^2.4.3",
     "autoprefixer": "^9.7.6",
+    "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.2",
+    "css-loader": "^3.5.2",
     "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "parcel-bundler": "^1.12.4",
     "postcss": "^7.0.27",
     "postcss-cli": "^7.1.0",
-    "tailwindcss": "^1.2.0"
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.1.3",
+    "tailwindcss": "^1.2.0",
+    "terser-webpack-plugin": "^2.3.5",
+    "url-loader": "^4.1.0",
+    "web-webpack-plugin": "^4.6.7",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "keywords": [
-    "tailwindcss",
+    "developer portfolio",
+    "parcel",
     "portfolio",
     "projects",
-    "developer portfolio",
+    "static website",
+    "tailwindcss",
     "web developer portfolio",
     "webpack"
   ]
