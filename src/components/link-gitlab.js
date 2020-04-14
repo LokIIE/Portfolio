@@ -1,4 +1,4 @@
-import { LitElement, html } from "./../../node_modules/lit-element/lit-element";
+import { LitElement, html } from "lit-element";
 
 class LinkGitlab extends LitElement {
 
@@ -32,7 +32,7 @@ class LinkGitlab extends LitElement {
                     text-decoration: none;
                 }
             </style>
-            <a class="external-link" href="${this.href}" target="_blank" rel="noreferrer">
+            <a class="external-link" href="${this.href}" target="_blank" rel="noreferrer" aria-label="Gitlab repository link">
                 <svg width="24" height="24" class="tanuki-logo" viewBox="0 0 36 36">
                     <path class="tanuki-shape tanuki-left-ear" fill="#e24329"
                         d="M2 14l9.38 9v-9l-4-12.28c-.205-.632-1.176-.632-1.38 0z"></path>
