@@ -15,22 +15,23 @@ var PROD = (process.env.NODE_ENV === 'production');
 module.exports = {
     mode: 'production',
     entry: {
-        main: './src/main.js'
+        index: './src/js/index.js',
+        main: './src/js/main.js'
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'assets/main.min.js'
+        filename: 'js/[name].min.js'
     },
     plugins: [
         new webpack.ProgressPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: "assets/[name].css"
+            filename: "css/[name].css"
         }),
         new WebPlugin({
             template: './src/index.html',
             filename: 'index.html',
-            requires: ['main']
+            requires: ['index']
         }),
         new WebPlugin({
             template: './src/list.html',
@@ -58,6 +59,16 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 5000
+                    }
+                }]
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'assets/fonts/'
                     }
                 }]
             }
