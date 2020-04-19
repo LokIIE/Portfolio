@@ -10,8 +10,6 @@ const {
     WebPlugin
 } = require('web-webpack-plugin');
 
-var PROD = (process.env.NODE_ENV === 'production');
-
 module.exports = {
     mode: 'production',
     entry: {

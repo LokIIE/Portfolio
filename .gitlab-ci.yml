@@ -52,7 +52,7 @@ build_parcel:
 build_webpack: 
   stage: Test build methods
   script: 
-    - npm run webpack-prod
+    - npm run webpack
   artifacts:
     expire_in: 1 day
     paths: 
