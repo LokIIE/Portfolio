@@ -10,8 +10,7 @@
     "postcss-prod": "cross-env NODE_ENV=production postcss src/css/main.pcss -o dist/css/main.css",
     "parcel-dev": "echo \"parcel uses production as target per default, use command 'npm run parcel'",
     "parcel": "parcel build src/index.html --no-cache --no-source-maps --public-url .",
-    "webpack-dev": "webpack && rm dist/*.pcss && truncate -s 0 dist/*.js",
-    "webpack-prod": "cross-env NODE_ENV=production webpack && rm dist/*.pcss && truncate -s 0 dist/*.js"
+    "webpack": "webpack && rm dist/*.pcss && truncate -s 0 dist/*.js"
   },
   "repository": {
     "type": "git",
