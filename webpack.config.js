@@ -1,35 +1,98 @@
-const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const {
+    CleanWebpackPlugin
+} = require('clean-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const {
+    WebPlugin
+} = require('web-webpack-plugin');
 
 module.exports = {
-  entry: './src/assets/css/styles.css',
-  mode: process.env.NODE_ENV,
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            { loader: 'css-loader', options: { importLoaders: 1 } },
-            'postcss-loader',
-          ],
+    mode: 'production',
+    entry: {
+        index: './src/js/index.js',
+        main: './src/js/main.js'
+    },
+    output: {
+        path: path.resolve(__dirname, './dist'),
+        filename: 'js/[name].min.js'
+    },
+    plugins: [
+        new webpack.ProgressPlugin(),
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "css/[name].css"
         }),
-      },
+        new WebPlugin({
+            template: './src/index.html',
+            filename: 'index.html',
+            requires: ['index']
+        }),
+        new WebPlugin({
+            template: './src/list.html',
+            filename: 'list.html',
+            requires: ['main']
+        }),
+        new WebPlugin({
+            template: './src/portfolio.html',
+            filename: 'portfolio.html',
+            requires: ['main']
+        }),
+        new WebPlugin({
+            template: './src/iiens.html',
+            filename: 'iiens.html',
+            requires: ['main']
+        }),
+        new WebPlugin({
+            template: './src/custom-yaac.html',
+            filename: 'custom-yaac.html',
+            requires: ['main']
+        })
     ],
-  },
-  plugins: [
-    new ExtractTextPlugin('styles.css', {
-      disable: process.env.NODE_ENV === 'development',
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'src/index.html',
-    }),
-    new PurifyCSSPlugin({
-      paths: glob.sync([path.join(__dirname, "/dist/*.html")])
-    })
-  ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
+            },{
+                test: /\.pcss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader'
+                ]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 5000
+                    }
+                }]
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'assets/fonts/'
+                    }
+                }]
+            }
+        ]
+    },
+    optimization: {
+        minimizer: [
+            new TerserJSPlugin({}),
+            new OptimizeCSSAssetsPlugin({})
+        ]
+    }
 }
-© 2020 GitHub, Inc.

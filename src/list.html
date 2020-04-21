@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="title" content="Srivatsan Magadevane - Portfolio">
+    <meta name="description"
+        content="Bonjour, je suis Srivatsan, diplômé de l'ENSIIE et développeur fullstack en région parisienne depuis 5 ans">
+    <meta name="keywords" content="Srivatsan, Magadevane, fullstack, développeur, portfolio, France, web, ENSIIE">
+    <title>Srivatsan Magadevane - Portfolio</title>
+    <link rel="stylesheet" href="./css/main.pcss">
+    <link rel="stylesheet" href="../node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+    <script src="./js/main.js" async></script>
+</head>
+
+<body>
+    <portfolio-header>Mes projets</portfolio-header>
+    <div class="hero">
+        <p>Bonjour !</p>
+        <p>Bienvenue dans le portfolio de mes projets personnels ! N'hésitez pas à fork ces projets ou
+            faire des merge
+            request s'ils vous plaîsent :)</p>
+    </div>
+    <div class="projects-grid grid-cols-4 md:grid-col-5 xl:grid-cols-6 grid-flow-row">
+        <a href="./portfolio.html" class="card col-span-4 md:col-span-2 xl:col-start-auto"
+            aria-label="Go to portfolio project">
+            <img src="./assets/img/sc-portfolio-1.png" alt="Portfolio screenshot" loading="lazy">
+            <div class="card-content">
+                <p class="card-title">
+                    Portfolio
+                </p>
+                <p class="card-description">
+                    Le site sur lequel vous vous trouvez :)<br />
+                    Portfolio simple fait à l'aide de TailwindCSS et qui fonctionne avec les modules bundler Parcel et
+                    Webpack
+                </p>
+                <div class="card-footer">
+                    <link-github href="https://github.com/LokIIE/portfolio"></link-github>
+                    <link-gitlab href="https://gitlab.com/LokIIE/portfolio"></link-gitlab>
+                </div>
+            </div>
+        </a>
+        <a href="./iiens.html" class="card col-span-4 md:col-span-2 xl:col-start-auto"
+            aria-label="Go to 'IIEns' project">
+            <div class="container">
+                <div class="glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <li class="glide__slide"><img src="assets/img/sc-iiens-1.webp" alt="App splash screen"
+                                    loading="lazy"></li>
+                            <li class="glide__slide"><img src="assets/img/sc-iiens-2.webp" alt="News functionnality"
+                                    loading="lazy">
+                            </li>
+                            <li class="glide__slide"><img src="assets/img/sc-iiens-3.webp"
+                                    alt="Timetable functionnality" loading="lazy"></li>
+                            <li class="glide__slide"><img src="assets/img/sc-iiens-4.webp" alt="Twitter functionnality"
+                                    loading="lazy">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <p class="card-title">
+                    IIEns
+                </p>
+                <p class="card-description">
+                    Application Android native pour les élèves de l'ENSIIE. Publiée en février 2015 et mise hors-service
+                    fin 2018.
+                </p>
+                <div class="card-footer">
+                    <link-github href="https://github.com/LokIIE/IIEns"></link-github>
+                    <link-gitlab href="https://gitlab.com/LokIIE/IIEns"></link-gitlab>
+                </div>
+            </div>
+        </a>
+        <a href="./custom-yaac.html" class="card col-span-4 md:col-span-2 xl:col-start-auto"
+            aria-label="Go to 'custom-YAAC' project">
+            <img src="assets/img/sc-custom-yaac.jpg" alt="Graph-RATP screenshot">
+            <div class="card-content">
+                <p class="card-title">
+                    Custom-YAAC
+                </p>
+                <p class="card-description">
+                    Fork d'un template LaTeX pour pouvoir générer facilement un CV dans la langue voulue
+                </p>
+                <div class="card-footer">
+                    <link-github href="https://github.com/LokIIE/custom-YAAC"></link-github>
+                    <link-gitlab href="https://gitlab.com/LokIIE/custom-YAAC"></link-gitlab>
+                </div>
+            </div>
+        </a>
+    </div>
+</body>
+
+</html>
