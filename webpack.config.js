@@ -40,10 +40,22 @@ module.exports = {
             template: './src/portfolio.html',
             filename: 'portfolio.html',
             requires: ['main']
-        })
+        }),
+        new WebPlugin({
+            template: './src/iiens.html',
+            filename: 'iiens.html',
+            requires: ['main']
+        }),
     ],
     module: {
-        rules: [{
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
+            },{
                 test: /\.pcss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
