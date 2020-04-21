@@ -75,7 +75,7 @@ build_webpack:
 build: 
   stage: Build
   script: 
-    - npm run build-parcel
+    - npm run parcel
   artifacts:
     expire_in: 1 day
     paths: 

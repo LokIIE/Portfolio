@@ -46,6 +46,11 @@ module.exports = {
             filename: 'iiens.html',
             requires: ['main']
         }),
+        new WebPlugin({
+            template: './src/custom-yaac.html',
+            filename: 'custom-yaac.html',
+            requires: ['main']
+        })
     ],
     module: {
         rules: [

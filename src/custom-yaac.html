@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="title" content="Srivatsan Magadevane - Portfolio">
+    <meta name="description"
+        content="Bonjour, je suis Srivatsan, diplômé de l'ENSIIE et développeur fullstack en région parisienne depuis 5 ans">
+    <meta name="keywords" content="Srivatsan, Magadevane, fullstack, développeur, portfolio, France, web, ENSIIE">
+    <title>Srivatsan Magadevane - Portfolio</title>
+    <link rel="stylesheet" href="./css/main.pcss">
+    <script src="./js/main.js" async></script>
+</head>
+
+<body>
+    <portfolio-header>Custom YAAC</portfolio-header>
+    <div class="flex flex-col">
+        <div class="summary box-border border-b bg-darksmoke-10 border-black lg:flex lg:flex-row lg:justify-evenly">
+            <img class="container object-contain m-auto lg:w-2/5" src="./assets/img/sc-custom-yaac.jpg"
+                alt="Screenshot projet Custom YAAC">
+            <div
+                class="summary-inner w-full absolute animated slideInUp bottom-0 bg-lightsmoke-75 lg:relative lg:w-2/3 lg:my-auto lg:rounded-lg lg:shadow-md lg:items-center lg:w-1/4 xl:w-1/3 xl:mx-auto">
+                <h3 class="pt-2 text-center text-4xl font-bold">
+                    Custom YAAC
+                </h3>
+                <div class="project-links">
+                    <link-github href="https://github.com/LokIIE/custom-YAAC"></link-github>
+                    <link-gitlab href="https://gitlab.com/LokIIE/custom-YAAC"></link-gitlab>
+                </div>
+                <ul class="stack-list">
+                    <li>LaTeX</li>
+                </ul>
+            </div>
+        </div>
+        <div class="project lg:w-full px-8 py-4">
+            <p class="w-full">
+                Fork d'un template LaTeX de CV, j'y ai ajouté la possibilité de sélectionner la langue dans laquelle le
+                CV doit être généré et j'ai apporté des modifications et options aux différentes sections du template : 
+            </p>
+            <ul class="w-full ml-8">
+                <li>Ajout d'un style de header</li>
+                <li>Ajout d'une section "Prix" / "Achievements"</li>
+                <li>Modification de l'arborescence de projet pour différencier les langues</li>
+                <li>Modification du style de certaines sections</li>
+            </ul>
+        </div>
+</body>
+
+</html>
