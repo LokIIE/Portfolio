@@ -5,9 +5,6 @@ import "../components/portfolio-header";
 
 import "../css/main.pcss";
 
-import "@glidejs/glide/dist/glide.min.js";
-import "@glidejs/glide/dist/css/glide.core.min.css";
-
 import Glide from '@glidejs/glide';
 
 new Glide('.glide', {
