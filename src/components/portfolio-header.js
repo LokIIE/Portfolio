@@ -36,7 +36,7 @@ class PortfolioHeader extends LitElement {
                     font-family: inherit;
                     font-size: 100%;
                     text-transform: none;
-                    margin: 0;
+                    margin-top: 0.5rem;
                 }
 
                 :host .title {
@@ -49,7 +49,6 @@ class PortfolioHeader extends LitElement {
                 }
 
                 :host .links {
-                    width: 8rem;
                     display: flex;
                     justify-content: space-between;
                 }
@@ -68,12 +67,9 @@ class PortfolioHeader extends LitElement {
                     <slot></slot>
                 </h2>
                 <div class="links">
-                    <link-github href="https://github.com/LokIIE" title="Check out my projects on Github !"></link-github>
                     <link-linkedin href="https://www.linkedin.com/in/smagadevane/"
                         title="Check this awesome guy's profile on Linkedin !">
                     </link-linkedin>
-                    <link-gitlab href="https://gitlab.com/LokIIE" title="Visit my Gitlab to check what I'm working on !">
-                    </link-gitlab>
                 </div>
             </header>
         `;

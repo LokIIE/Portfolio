@@ -5,14 +5,59 @@
 @import url("https://fonts.googleapis.com/css?family=Varela&display=swap");
 
 html {
-    min-height: 100%;
     font-family: 'Varela', Arial, sans-serif;
-    min-width: 500px;
+    min-width: 260px;
+    min-height: 460px;
 }
 
 body {
     background-image: url('../assets/img/bg.png');
     color: black;
+}
+
+/********** Title box **********/
+
+.title-box {
+    @apply text-center mt-32 mb-auto w-40 bg-gray-100 p-1 z-10;
+    border: 2px solid black;
+    border-radius: 0.375rem;
+}
+
+@media(min-width:640px) {
+    .title-box {
+        border: 8px double black;
+        width: 16rem;
+    }
+}
+
+@media(min-width:768px) {
+    .title-box {
+        @apply my-auto;
+        width: 32rem;
+    }
+}
+
+@media(min-width:1024px) {
+    .title-box {
+        width: 48rem;
+    }
+}
+
+@media(min-width:1280px) {
+    .title-box {
+        width: 64rem;
+    }
+}
+
+/********** End title box **********/
+
+/********** Gradient strip **********/
+
+.gradiant-base {
+    height: 5px;
+    max-height: 20%;
+    filter: blur(1px);
+    background: repeating-linear-gradient(-45deg, #f22 0%,#22f 20%,#2ff 40%, #2f2 60%, #ff2 80%, #f22 100%);
 }
 
 .strip {
@@ -30,10 +75,10 @@ body {
     overflow: hidden;
 }
 
-.title-box {
-    @apply text-center;
-    border: 8px double black;
-    border-radius: 0.375rem;
+@media(max-height:480px) {
+    .strip-wrapper {
+        display: none;
+    }
 }
 
 @variants animated {
@@ -48,14 +93,6 @@ body {
         width: 2000px;
         animation: big-parade 10s infinite linear;
     }
-}
-
-
-.gradiant-base {
-    height: 5px;
-    max-height: 20%;
-    filter: blur(1px);
-    background: repeating-linear-gradient(-45deg, #f22 0%,#22f 20%,#2ff 40%, #2f2 60%, #ff2 80%, #f22 100%);
 }
 
 @keyframes parade {
@@ -76,6 +113,10 @@ body {
     }
 }
 
+/********** End gradient strip **********/
+
+/********** External links **********/
+
 .external-links {
     @apply flex flex-row items-center;
 }
@@ -91,6 +132,8 @@ body {
 .external-links:hover >:hover {
     opacity: 1;
 }
+
+/********** End external links **********/
 
 /***** Double arrow icon *****/
 a {
