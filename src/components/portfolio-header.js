@@ -4,17 +4,19 @@ class PortfolioHeader extends LitElement {
 
     static get properties() {
         return {
+            isMenuOpen: {
+                type: Boolean
+            }
         };
     }
 
     render() {
         return html `
-            <style>        
-                :host {
+            <style>  
+                header {
+                    position: sticky;
+                    z-index: 100;
                     text-color: black;
-                }
-
-                :host header {
                     display: flex;
                     position: relative;
                     align-items: center;
@@ -23,7 +25,7 @@ class PortfolioHeader extends LitElement {
                     background-color: #f7fafc;
                 }
 
-                :host button[type="button"] {
+                header button[type="button"] {
                     -webkit-appearance: button;
                     display: block;
                     border: none;
@@ -36,10 +38,9 @@ class PortfolioHeader extends LitElement {
                     font-family: inherit;
                     font-size: 100%;
                     text-transform: none;
-                    margin-top: 0.5rem;
                 }
 
-                :host .title {
+                header .title {
                     display: inline-block;
                     position: bsolute;
                     margin: initial;
@@ -48,14 +49,18 @@ class PortfolioHeader extends LitElement {
                     font-size: 1.5rem;
                 }
 
-                :host .links {
+                header .links {
                     display: flex;
                     justify-content: space-between;
+                }
+
+                svg {
+                    vertical-align: bottom;
                 }
             </style>
 
             <header>
-                <button type="button" class="menu">
+                <button type="button" class="menu" @click="${this.onMenuClick}">
                     <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'>
                         <title>ionicons-v5-j</title>
                         <line x1='80' y1='160' x2='432' y2='160' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
@@ -72,7 +77,14 @@ class PortfolioHeader extends LitElement {
                     </link-linkedin>
                 </div>
             </header>
+
+            
+            <portfolio-menu ?open=${this.isMenuOpen}></portfolio-menu>
         `;
+    }
+
+    onMenuClick() {
+        this.isMenuOpen = !this.isMenuOpen;
     }
 }
 
