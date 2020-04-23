@@ -96,7 +96,7 @@ class Menu extends LitElement {
                         <li><a href="./custom-yaac.html">Custom YAAC</a></li>
                     </ul>
                 </li>
-                <li><a href="./list.html">CV</a></li>
+                <li><a href="http://magadeva.iiens.net/cv-2020.pdf" target="_blank">CV</a></li>
                 <hr style="background-color: white;"/>
                 <li>
                     <link-linkedin href="https://www.linkedin.com/in/smagadevane/" title="Check this awesome guy's profile on Linkedin !">
