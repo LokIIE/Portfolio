@@ -16,41 +16,78 @@ class Menu extends LitElement {
     render() {
         return html `
             <style>
-                .sidenav {
-                    background-color: #EEE;
+                #sidenav-container {
+                    position: fixed;
                     font-size: 1rem;
                     height: 100%;
+                    top: 0;
                     left: 0;
                     padding-top: 52px;
-                    overflow-x: hidden;
-                    position: fixed;
-                    top: 0;
-                    transform: translateX(-100%);
+                    pointer-events: none;
                     transition: transform 0.5s;
-                    width: 250px;
+                    width: 100%;
                     z-index: 50;
                 }
-                
-                .sidenav * {
-                    color: gray;
-                }
 
-                .sidenav a {
-                    text-decoration: none;
-                }
-            
-                .sidenav.open {
+                #sidenav-container.open {
                     transform: translateX(0%);
                     transition: 0.5s;
                 }
 
-                .sidenav > ul {
+                #sidenav-container > .bg {
+                    position: absolute;
+                    visibility: hidden;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: #000;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: 0.3s;
+                }
+
+                #sidenav-container.open > .bg {
+                    visibility: visible;
+                    opacity: 0.6;
+                    transition: 0.3s;
+                }
+
+                #sidenav {
+                    background-color: #EEE;
+                    pointer-events: auto;
+                    position: absolute;
+                    width: 250px;
+                    height: 100%;
+                }
+
+                #sidenav-container #sidenav {
+                    transform: translateX(-100%);
+                    transition: 0.5s;
+                }
+
+                #sidenav-container.open #sidenav {
+                    transform: translateX(0%);
+                    transition: 0.5s;
+                }
+
+                #sidenav * {
+                    color: gray;
+                }
+
+                #sidenav a {
+                    text-decoration: none;
+                }
+                
+                #sidenav > ul {
+                    display: inline-block;
+                    height: 100%;
                     list-style: none;
-                    padding-inline-start: 0px;
                     margin-block-start: 0px;
                     margin-block-end: 0px;
                     margin-inline-start: 0px;
                     margin-inline-end: 0px;
+                    padding-inline-start: 0px;
+                    width: 100%;
                 }
 
                 li > * {
@@ -91,30 +128,33 @@ class Menu extends LitElement {
             </style>
 
             
-            <nav class="sidenav ${this.open ? 'open' : ''}">
-                <ul>
-                    <li class="level-one"><a href="./list.html">Projets</a></li>
-                    <li class="level-two"><a href="./portfolio.html">Portfolio</a></li>
-                    <li class="level-two"><a href="./iiens.html">IIEns</a></li>
-                    <li class="level-two"><a href="./custom-yaac.html">Custom YAAC</a></li>
-                    <li class="level-one"><a href="http://magadeva.iiens.net/cv-2020.pdf" target="_blank">CV</a></li>
-                    <hr style="background-color: white;"/>
-                    <li class="level-one">
-                        <link-linkedin href="https://www.linkedin.com/in/smagadevane/" title="Check this awesome guy's profile on Linkedin !">
-                            LinkedIn
-                        </link-linkedin>
-                    </li>
-                    <li class="level-one">
-                        <link-github href="https://github.com/LokIIE" title="Check out my projects on Github !">
-                            Mon Github
-                        </link-github>
-                    </li>
-                    <li class="level-one">
-                        <link-gitlab href="https://gitlab.com/LokIIE" title="Visit my Gitlab to check what I'm working on !">
-                            Mon Gitlab
-                        </link-gitlab>
-                    </li>
-                </ul>
+            <nav id="sidenav-container" class="${this.open ? 'open' : ''}">
+                <div class="bg"></div>
+                <div id="sidenav">
+                    <ul>
+                        <li class="level-one"><a href="./list.html">Projets</a></li>
+                        <li class="level-two"><a href="./portfolio.html">Portfolio</a></li>
+                        <li class="level-two"><a href="./iiens.html">IIEns</a></li>
+                        <li class="level-two"><a href="./custom-yaac.html">Custom YAAC</a></li>
+                        <li class="level-one"><a href="http://magadeva.iiens.net/cv-2020.pdf" target="_blank">CV</a></li>
+                        <hr style="background-color: white;"/>
+                        <li class="level-one">
+                            <link-linkedin href="https://www.linkedin.com/in/smagadevane/" title="Check this awesome guy's profile on Linkedin !">
+                                LinkedIn
+                            </link-linkedin>
+                        </li>
+                        <li class="level-one">
+                            <link-github href="https://github.com/LokIIE" title="Check out my projects on Github !">
+                                Mon Github
+                            </link-github>
+                        </li>
+                        <li class="level-one">
+                            <link-gitlab href="https://gitlab.com/LokIIE" title="Visit my Gitlab to check what I'm working on !">
+                                Mon Gitlab
+                            </link-gitlab>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         `;
     }
