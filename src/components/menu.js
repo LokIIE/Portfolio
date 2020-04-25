@@ -17,18 +17,34 @@ class Menu extends LitElement {
         return html `
             <style>
                 .sidenav {
-                    font-size: 20px;
-                    width: 0px;
-                    height: 100%;
-                    position: absolute;
-                    z-index: 50;
-                    left: 0;
-                    top: 0;
                     background-color: #EEE;
+                    font-size: 1rem;
+                    height: 100%;
+                    left: 0;
+                    padding-top: 52px;
                     overflow-x: hidden;
-                    padding-top: 5rem;
-                    transition: 0.5s;
+                    position: fixed;
+                    top: 0;
+                    transform: translateX(-100%);
+                    transition: transform 0.5s;
+                    width: 250px;
+                    z-index: 50;
+                }
+                
+                .sidenav * {
+                    color: gray;
+                }
 
+                .sidenav a {
+                    text-decoration: none;
+                }
+            
+                .sidenav.open {
+                    transform: translateX(0%);
+                    transition: 0.5s;
+                }
+
+                .sidenav > ul {
                     list-style: none;
                     padding-inline-start: 0px;
                     margin-block-start: 0px;
@@ -37,46 +53,34 @@ class Menu extends LitElement {
                     margin-inline-end: 0px;
                 }
 
-                .sidenav * {
-                    color: gray;
+                li > * {
                     display: block;
-                    transition: 0.3s;
-                }
-
-                .sidenav a {
-                    text-decoration: none;
-                }
-            
-                .sidenav.open {
-                    width: 250px;
+                    padding-top: 12px; 
+                    padding-bottom: 12px;
                     transition: 0.5s;
                 }
 
-                .sidenav > li {
-                    margin-top: 12px; 
-                    margin-bottom: 12px;
-                    text-decoration: none;
+                li.level-one > * {
+                    padding-left: 24px;
+                    font-size: 1rem;
                 }
 
-                .sidenav li > *:not(ul) {
-                    margin: 6px 0;
-                    padding: 0 2rem;
+                li.level-two > * {
+                    padding-left: 40px;
+                    font-size: 0.95rem;
                 }
 
-                .sidenav li ul {
-                    list-style: none;
-                    font-size: 0.8rem;
-                }
-                
-                .sidenav li:hover > *:not(ul):hover {
-                    background-color: #CCC;
+                li:hover > * {
+                    background-color: lightskyblue;
                     color: black;
+                    font-weight: bolder;
+                    transition: 0.5s;
                 }
                 
                 @media screen and (max-height: 450px) {
-                    .sidenav > li > * {
-                        font-size: 0.8rem;
-                        transform: scale(0.8);
+                    ul > li > * {
+                        font-size: 0.9rem;
+                        transform: scale(0.9);
                     }
                 }
 
@@ -86,34 +90,32 @@ class Menu extends LitElement {
                 }
             </style>
 
-                
-            <ul class="sidenav ${this.open ? 'open' : ''}">
-                <li>
-                    <a href="./list.html">Projets</a>
-                    <ul>
-                        <li><a href="./portfolio.html">Portfolio</a></li>
-                        <li><a href="./iiens.html">IIEns</a></li>
-                        <li><a href="./custom-yaac.html">Custom YAAC</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://magadeva.iiens.net/cv-2020.pdf" target="_blank">CV</a></li>
-                <hr style="background-color: white;"/>
-                <li>
-                    <link-linkedin href="https://www.linkedin.com/in/smagadevane/" title="Check this awesome guy's profile on Linkedin !">
-                        LinkedIn
-                    </link-linkedin>
-                </li>
-                <li>
-                    <link-github href="https://github.com/LokIIE" title="Check out my projects on Github !">
-                        Mon Github
-                    </link-github>
-                </li>
-                <li>
-                    <link-gitlab href="https://gitlab.com/LokIIE" title="Visit my Gitlab to check what I'm working on !">
-                        Mon Gitlab
-                    </link-gitlab>
-                </li>
-            </ul>
+            
+            <nav class="sidenav ${this.open ? 'open' : ''}">
+                <ul>
+                    <li class="level-one"><a href="./list.html">Projets</a></li>
+                    <li class="level-two"><a href="./portfolio.html">Portfolio</a></li>
+                    <li class="level-two"><a href="./iiens.html">IIEns</a></li>
+                    <li class="level-two"><a href="./custom-yaac.html">Custom YAAC</a></li>
+                    <li class="level-one"><a href="http://magadeva.iiens.net/cv-2020.pdf" target="_blank">CV</a></li>
+                    <hr style="background-color: white;"/>
+                    <li class="level-one">
+                        <link-linkedin href="https://www.linkedin.com/in/smagadevane/" title="Check this awesome guy's profile on Linkedin !">
+                            LinkedIn
+                        </link-linkedin>
+                    </li>
+                    <li class="level-one">
+                        <link-github href="https://github.com/LokIIE" title="Check out my projects on Github !">
+                            Mon Github
+                        </link-github>
+                    </li>
+                    <li class="level-one">
+                        <link-gitlab href="https://gitlab.com/LokIIE" title="Visit my Gitlab to check what I'm working on !">
+                            Mon Gitlab
+                        </link-gitlab>
+                    </li>
+                </ul>
+            </nav>
         `;
     }
 }
