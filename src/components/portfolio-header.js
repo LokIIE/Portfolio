@@ -4,42 +4,53 @@ class PortfolioHeader extends LitElement {
 
     static get properties() {
         return {
+            isMenuOpen: {
+                type: Boolean
+            }
         };
     }
 
     render() {
         return html `
-            <style>        
-                :host {
-                    text-color: black;
-                }
-
-                :host header {
-                    display: flex;
-                    position: relative;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 0.5rem 1rem;
+            <style>  
+                header {
                     background-color: #f7fafc;
+                    min-height: 52px;
+                    min-width: 250px;
+                    position: fixed;
+                    top: 0;
+                    width: 100%;
+                    z-index: 100;
                 }
 
-                :host button[type="button"] {
+                header > .content {
+                    align-items: center;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-top: 0.5rem;
+                    padding-bottom: 0.5rem;
+                    width: 100%;
+                }
+
+                header button[type="button"] {
                     -webkit-appearance: button;
                     display: block;
                     border: none;
                     cursor: pointer;
-                    padding: 0;
                     line-height: inherit;
                     color: inherit;
                     background-color: transparent;
                     background-image: none;
                     font-family: inherit;
-                    font-size: 100%;
+                    font-size: 1rem;
                     text-transform: none;
-                    margin: 0;
                 }
 
-                :host .title {
+                button:focus {
+                    outline: none;
+                }
+
+                header .title {
                     display: inline-block;
                     position: bsolute;
                     margin: initial;
@@ -48,35 +59,48 @@ class PortfolioHeader extends LitElement {
                     font-size: 1.5rem;
                 }
 
-                :host .links {
-                    width: 8rem;
+                header .links {
                     display: flex;
                     justify-content: space-between;
+                }
+
+                svg {
+                    vertical-align: bottom;
+                }
+                
+                .content > * {
+                    padding-left: 16px;
+                    padding-right: 16px;
                 }
             </style>
 
             <header>
-                <button type="button" class="menu">
-                    <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'>
-                        <title>ionicons-v5-j</title>
-                        <line x1='80' y1='160' x2='432' y2='160' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
-                        <line x1='80' y1='256' x2='432' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
-                        <line x1='80' y1='352' x2='432' y2='352' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
-                    </svg>
-                </button>
-                <h2 class="title">
-                    <slot></slot>
-                </h2>
-                <div class="links">
-                    <link-github href="https://github.com/LokIIE" title="Check out my projects on Github !"></link-github>
-                    <link-linkedin href="https://www.linkedin.com/in/smagadevane/"
-                        title="Check this awesome guy's profile on Linkedin !">
-                    </link-linkedin>
-                    <link-gitlab href="https://gitlab.com/LokIIE" title="Visit my Gitlab to check what I'm working on !">
-                    </link-gitlab>
+                <div class="content">
+                    <button type="button" class="menu" @click="${this.onMenuClick}">
+                        <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'>
+                            <title>ionicons-v5-j</title>
+                            <line x1='80' y1='160' x2='432' y2='160' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                            <line x1='80' y1='256' x2='432' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                            <line x1='80' y1='352' x2='432' y2='352' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                        </svg>
+                    </button>
+                    <h2 class="title">
+                        <slot></slot>
+                    </h2>
+                    <div class="links">
+                        <link-linkedin href="https://www.linkedin.com/in/smagadevane/"
+                            title="Check this awesome guy's profile on Linkedin !">
+                        </link-linkedin>
+                    </div>
                 </div>
             </header>
+
+            <portfolio-menu ?open=${this.isMenuOpen}></portfolio-menu>
         `;
+    }
+
+    onMenuClick() {
+        this.isMenuOpen = !this.isMenuOpen;
     }
 }
 

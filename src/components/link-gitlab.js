@@ -18,18 +18,35 @@ class LinkGitlab extends LitElement {
     render() {
         return html `
             <style>
-                :host, svg {
-                    width: 32px;
-                    height: 32px;
+                :host {
+                    color: black;
                 }
 
-                svg:hover {
-                    transition: transform 0.2s;
-                    transform: scale(1.2);
+                svg {
+                    width: 32px;
+                    height: 32px;
+                    vertical-align: bottom;
                 }
 
                 a {
+                    display: block;
                     text-decoration: none;
+                    transition: 0.2s;
+                }
+
+                a:-webkit-any-link {
+                    color: inherit;
+                }
+
+                
+                a > svg {
+                    transition: transform 0.2s, padding-right 0.2s;
+                }
+
+                a:hover > svg {
+                    transition: transform 0.2s, padding-right 0.2s;
+                    padding-right: 2px;
+                    transform: scale(1.2);
                 }
             </style>
             <a class="external-link" href="${this.href}" target="_blank" rel="noreferrer" aria-label="Gitlab repository link">
@@ -48,6 +65,7 @@ class LinkGitlab extends LitElement {
                     <path class="tanuki-shape tanuki-right-cheek" fill="#fca326"
                         d="M34 14l1.9 6.16c.18.565 0 1.2-.5 1.56L18 34.38z"></path>
                 </svg>
+                <slot></slot>
             </a>
         `;
     }
