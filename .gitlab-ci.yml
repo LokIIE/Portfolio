@@ -9,16 +9,17 @@ stages:
 cache:
   paths:
     - node_modules
-    
+  
 npm_install:
   stage: Prepare
   script:
-    - npm install --progress=false
+    - npm install --progress=false --unsafe-perm=true --allow-root
 
 build_tailwind: 
   stage: Test build methods
   script: 
     - npm run tailwind
+    - ls dist
   except:
     - tags
 
@@ -26,13 +27,16 @@ build_postcss:
   stage: Test build methods
   script: 
     - npm run postcss-prod
+    - ls dist
   except:
     - tags
 
 build_parcel: 
   stage: Test build methods
   script: 
+    - npm install -g parcel-bundler --unsafe-perm=true --allow-root
     - npm run parcel
+    - ls dist
   except:
     - tags
 
@@ -40,19 +44,22 @@ build_webpack:
   stage: Test build methods
   script: 
     - npm run webpack
+    - ls dist
   except:
     - tags
 
 build: 
   stage: Build
   script: 
+    - npm install -g parcel-bundler --unsafe-perm=true --allow-root
     - npm run parcel
+    - ls dist
   artifacts:
     expire_in: 1 day
     paths: 
       - dist
   only:
-   - tags
+    - tags
 
 deploy:
   stage: Deploy
@@ -60,12 +67,13 @@ deploy:
     - apt-get update -qq && apt-get install -y -qq sshpass
     - sshpass -V
     - export SSHPASS=$PROD_PASSWD
+    - echo "Content to deploy :"
+    - ls dist
     - sshpass -e scp -o StrictHostKeyChecking=no -r ./dist/* $PROD_SSH:~/$PROD_DIR
     - echo "Deployment complete"
   # specify environment this job is using
   environment:
     name: production
     url: "$PROD_URL"
-  # only run on these branches
   only:
     - tags
