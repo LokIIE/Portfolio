@@ -95,7 +95,7 @@ ul {
 }
 
 .card {
-    @apply relative block m-2 border-gray-600 rounded-md shadow-md h-64 bg-gray-200 bg-center bg-contain bg-no-repeat overflow-hidden;
+    @apply relative block m-2 border-gray-600 rounded-md shadow-md bg-gray-200 bg-center bg-contain bg-no-repeat overflow-hidden;
     height: 18rem;
 }
 
@@ -104,6 +104,10 @@ ul {
     margin: auto;
     transition: transform 0.8s;
     transform: scale(1);
+}
+
+.card .img-container {
+    @apply h-full overflow-hidden rounded-md border-white border-transparent border-2;
 }
 
 .card:hover img  {
