@@ -23,6 +23,7 @@ class LinkGithub extends LitElement {
             }
 
             svg {
+                fill: var(--svg-fill-logo-github);
                 width: 32px;
                 height: 32px;
                 vertical-align: bottom;

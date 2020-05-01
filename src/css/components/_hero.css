@@ -1,0 +1,26 @@
+.hero {
+    background: var(--hero-bg);
+    height: 100%;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+}
+
+.hero p {
+    display: block;
+    width: 100%;
+}
+
+.hero > .hero-title {
+    color: var(--hero-title-color);
+    filter: brightness(var(--hero-title-brightness));
+    font-size: 3rem;
+    font-weight: bolder;
+}
+
+.hero > .hero-content {
+    color: var(--hero-content-color);
+    filter: brightness(var(--hero-content-brightness));
+}

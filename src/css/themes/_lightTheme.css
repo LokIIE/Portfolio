@@ -1,0 +1,35 @@
+:root[data-theme="light"] {
+    --primary-color: #edf2f7;
+    --secondary-color:#bbe1fa;
+    --primary-text-color: #0f4c75;
+    --secondary-text-color: #3282b8;
+
+    --body-bg: url('../../assets/img/bg.png');
+    --text-color: var(--primary-text-color);
+
+    --title-box-border-color:  var(--primary-text-color);
+    --title-box-bg-color: var(--primary-color);
+
+    --arrow-btn-bg-color: var(--primary-color);
+    --arrow-btn-border-color: var(--primary-text-color);
+    --arrow-color: var(--primary-text-color);
+
+    --header-bg: var(--primary-color);
+    --menu-ic-color: black;
+    --menu-bg: var(--primary-color);
+    --menu-item-bg-hover: var(--secondary-color);
+
+    --hero-bg: var(--secondary-color);
+    --hero-title-color: var(--primary-text-color);
+    --hero-title-brightness: 1;
+    --hero-content-color: var(--primary-text-color);
+    --hero-content-brightness: 0.9;
+
+    --card-bg: var(--secondary-text-color);
+    --card-border-color: transparent;
+
+    --stack-pills-bg: var(--secondary-color);
+    --stack-pills-text: var(--primary-text-color);
+
+    --svg-fill-logo-github: black;
+}
