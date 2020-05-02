@@ -21,6 +21,8 @@ class PortfolioHeader extends LitElement {
                     top: 0;
                     width: 100%;
                     z-index: 100;
+                    border-bottom: 1px solid var(--secondary-color);
+                    z-index: 10000;
                 }
 
                 header > .content {
@@ -96,12 +98,16 @@ class PortfolioHeader extends LitElement {
                 </div>
             </header>
 
-            <portfolio-menu ?open=${this.isMenuOpen}></portfolio-menu>
+            <portfolio-menu ?open=${this.isMenuOpen} @menu-closed="${this.onMenuClosed}"></portfolio-menu>
         `;
     }
 
     onMenuClick() {
         this.isMenuOpen = !this.isMenuOpen;
+    }
+
+    onMenuClosed() {
+        this.isMenuOpen = false;
     }
 }
 

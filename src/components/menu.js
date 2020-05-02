@@ -8,7 +8,8 @@ class Menu extends LitElement {
     static get properties() {
         return {
             open: {
-                type: Boolean
+                type: Boolean,
+                reflect: true
             }
         };
     }
@@ -26,7 +27,7 @@ class Menu extends LitElement {
                     pointer-events: none;
                     transition: transform 0.5s;
                     width: 100%;
-                    z-index: 9999;
+                    z-index: 10000;
                 }
 
                 #sidenav-container.open {
@@ -34,20 +35,19 @@ class Menu extends LitElement {
                     transition: 0.5s;
                 }
 
-                #sidenav-container > .bg {
-                    position: absolute;
+                .backdrop {
+                    position: fixed;
                     visibility: hidden;
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background: #000;
-                    pointer-events: none;
+                    background: var(--menu-backdrop-bg);
                     opacity: 0;
                     transition: 0.3s;
                     z-index: 9999;
                 }
 
-                #sidenav-container.open > .bg {
+                #sidenav-container.open + .backdrop {
                     visibility: visible;
                     opacity: 0.6;
                     transition: 0.3s;
@@ -61,7 +61,6 @@ class Menu extends LitElement {
                     height: 100%;
                     display: flex;
                     flex-flow: column;
-                    z-index: 10000;
                 }
 
                 #sidenav-container #sidenav {
@@ -142,7 +141,7 @@ class Menu extends LitElement {
                     background-color: var(--menu-item-bg-hover);
                     color: black;
                     font-weight: bolder;
-                    transition: 0.5s;
+                    transition: 0.3s;
                 }
                 
                 @media screen and (max-height: 450px) {
@@ -153,9 +152,7 @@ class Menu extends LitElement {
                 }
             </style>
 
-            
             <nav id="sidenav-container" class="${this.open ? 'open' : ''}">
-                <div class="bg"></div>
                 <div id="sidenav">
                     <div id="menu-head">
                         <div class="author">S. Magadevane</div>
@@ -189,7 +186,18 @@ class Menu extends LitElement {
                     </div>
                 </div>
             </nav>
+            <div class="backdrop" @click="${this.closeMenu}"></div>
         `;
+    }
+
+    
+    closeMenu() {
+        this.open = false;
+        this.dispatchEvent(new CustomEvent('menu-closed'), {
+            detail: { 
+                value: false 
+            } 
+        });
     }
 }
 

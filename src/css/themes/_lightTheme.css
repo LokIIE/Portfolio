@@ -1,5 +1,5 @@
 :root[data-theme="light"] {
-    --primary-color: #edf2f7;
+    --primary-color: #f7fafc;
     --secondary-color:#bbe1fa;
     --primary-text-color: #0f4c75;
     --secondary-text-color: #3282b8;
@@ -16,6 +16,7 @@
 
     --header-bg: var(--primary-color);
     --menu-ic-color: black;
+    --menu-backdrop-bg: white;
     --menu-bg: var(--primary-color);
     --menu-item-bg-hover: var(--secondary-color);
 

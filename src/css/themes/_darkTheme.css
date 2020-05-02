@@ -16,6 +16,7 @@
 
     --header-bg: var(--primary-color);
     --menu-ic-color: white;
+    --menu-backdrop-bg: black;
     --menu-bg: var(--primary-color);
     --menu-item-bg-hover: var(--secondary-color);
 
