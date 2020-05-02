@@ -2,18 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css?family=Varela&display=swap");
+@import "./themes/_global.pcss";
 
-html {
-    font-family: 'Varela', Arial, sans-serif;
-    min-width: 260px;
-    min-height: 460px;
-}
+/********** Themes **********/
+@import "./themes/_darkTheme.css";
+@import "./themes/_lightTheme.css";
 
-body {
-    background-image: url('../assets/img/bg.png');
-    color: black;
-}
+/********** Components **********/
+@import "./components/_hero.css";
 
 ul {
   list-style-type: circle;
@@ -22,8 +18,16 @@ ul {
 /********** Project summary **********/
 
 .summary {
-    @apply relative max-h-screen max-w-full py-2 box-border border-b border-black overflow-hidden bg-contain bg-top bg-no-repeat overflow-hidden flex flex-col;
+    @apply relative max-h-screen max-w-full mt-12 py-2 box-border border-b border-black overflow-hidden bg-contain bg-top bg-no-repeat overflow-hidden flex flex-col;
     min-height: 500px;
+}
+
+[data-theme="light"] .summary {
+    @apply bg-lightsmoke-40;
+}
+
+[data-theme="dark"] .summary {
+    @apply bg-darksmoke-40;
 }
 
 .summary img {
@@ -34,14 +38,29 @@ ul {
     @apply z-10 p-4 mx-auto flex flex-col items-center overflow-hidden;
 }
 
+[data-theme="light"] .summary .summary-inner {
+    @apply bg-lightsmoke-75;
+}
+
+[data-theme="dark"] .summary .summary-inner {
+    @apply bg-darksmoke-75;
+}
+
+.summary .summary-title {
+    @apply pt-2 text-center text-4xl font-bold;
+    filter: brightness(0.9);
+}
+
 .stack-list {
     @apply py-2 flex flex-row flex-wrap justify-center;
     list-style-type: none;
+    color: var(--stack-pills-text);
 }
 
 .stack-list li {
-    @apply mx-2 my-1 px-2 bg-purple-300 rounded-md text-xs text-center font-light;
+    @apply mx-2 my-1 px-2 rounded-md text-xs text-center font-light;
     width: fit-content;
+    background: var(--stack-pills-bg);
 }
 
 /********** End project summary **********/
@@ -90,13 +109,19 @@ ul {
     flex-wrap: wrap;
 }
 
+.project h1, .project h2, .project h3, .project h4, .project h5, .project h6 {
+    color: var(--primary-text-color);
+    filter: brightness(0.8);
+}
+
 .project-links {
     @apply w-32 py-2 flex justify-evenly;
 }
 
 .card {
-    @apply relative block m-2 border-gray-600 rounded-md shadow-md h-64 bg-gray-200 bg-center bg-contain bg-no-repeat overflow-hidden;
+    @apply relative block m-2 rounded-md shadow-md bg-center bg-contain bg-no-repeat overflow-hidden;
     height: 18rem;
+    background: var(--card-bg);
 }
 
 .card img {
@@ -106,13 +131,20 @@ ul {
     transform: scale(1);
 }
 
+.card .img-container {
+    @apply h-full overflow-hidden rounded-md;
+    border-width: 0.5px;
+    border-color: var(--card-border-color);
+}
+
 .card:hover img  {
     transition: transform 0.8s;
     transform: scale(1.1);
 }
 
 .card .card-content {
-    @apply absolute pb-4 px-4 w-full h-full bg-lightsmoke-75 text-blue-700 text-sm;
+    @apply absolute pb-4 px-4 w-full h-full text-sm;
+    color: var(--primary-text-color);
     top: 16rem;
     padding-top: 0;
     border-radius: inherit;
@@ -120,6 +152,14 @@ ul {
     transition-duration: 1s;
     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
     backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .card-content {
+    @apply bg-lightsmoke-75;
+}
+
+[data-theme="dark"] .card-content {
+    @apply bg-darksmoke-75;
 }
 
 .card .card-content:hover {
@@ -135,7 +175,8 @@ ul {
 }
 
 .card .card-title {
-    @apply text-xl font-bold text-blue-800 text-center;
+    @apply text-xl font-bold text-center;
+    color: var(--primary-text-color);
 }
 
 .card .card-footer {
@@ -143,31 +184,6 @@ ul {
 }
 
 /********** End projects list and cards **********/
-
-/********** Hero **********/
-
-.hero {
-    @apply bg-blue-200;
-    height: 100%;
-    padding: 6rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    text-align: center;
-}
-
-.hero p {
-    display: block;
-    width: 100%;
-}
-
-.hero p:first-child {
-    @apply text-blue-800;
-    font-size: 3rem;
-    font-weight: bolder;
-}
-
-/********** End hero **********/
 
 /********** Glide plugin ***********/
 

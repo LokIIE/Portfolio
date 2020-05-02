@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -17,21 +17,23 @@
 <body>
     <portfolio-header>Mes projets</portfolio-header>
     <div class="hero">
-        <p>Bonjour !</p>
-        <p>Bienvenue dans le portfolio de mes projets personnels ! N'hésitez pas à fork ces projets ou
+        <p class="hero-title">Bonjour !</p>
+        <p class="hero-content">Bienvenue dans le portfolio de mes projets personnels ! N'hésitez pas à fork ces projets ou
             faire des merge
             request s'ils vous plaîsent :)</p>
     </div>
     <div class="projects-grid">
         <a href="./portfolio.html" class="card col-span-4 md:col-span-2 xl:col-start-auto"
             aria-label="Go to portfolio project">
-            <img src="./assets/img/sc-portfolio-1.png" alt="Portfolio screenshot" loading="lazy">
+            <div class="img-container">
+                <img src="./assets/img/sc-portfolio-1.png" alt="Portfolio screenshot" loading="lazy">
+            </div>
             <div class="card-content">
                 <p class="card-title">
                     Portfolio
                 </p>
                 <p class="card-description">
-                    Le site sur lequel vous vous trouvez :)<br />
+                    Le site sur lequel vous vous trouvez &#x1F603;<br />
                     Portfolio simple fait à l'aide de TailwindCSS et qui fonctionne avec les modules bundler Parcel et
                     Webpack
                 </p>
@@ -77,7 +79,9 @@
         </a>
         <a href="./custom-yaac.html" class="card col-span-4 md:col-span-2 xl:col-start-auto"
             aria-label="Go to 'custom-YAAC' project">
-            <img src="assets/img/sc-custom-yaac.jpg" alt="Graph-RATP screenshot">
+            <div class="img-container">
+                <img src="assets/img/sc-custom-yaac.jpg" alt="Custom YAAC screenshot" loading="lazy">
+            </div>
             <div class="card-content">
                 <p class="card-title">
                     Custom-YAAC

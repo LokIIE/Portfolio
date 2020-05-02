@@ -14,7 +14,7 @@ class PortfolioHeader extends LitElement {
         return html `
             <style>  
                 header {
-                    background-color: #f7fafc;
+                    background: var(--header-bg);
                     min-height: 52px;
                     min-width: 250px;
                     position: fixed;
@@ -64,8 +64,9 @@ class PortfolioHeader extends LitElement {
                     justify-content: space-between;
                 }
 
-                svg {
+                svg.menu {
                     vertical-align: bottom;
+                    stroke: var(--menu-ic-color);
                 }
                 
                 .content > * {
@@ -77,11 +78,11 @@ class PortfolioHeader extends LitElement {
             <header>
                 <div class="content">
                     <button type="button" class="menu" @click="${this.onMenuClick}">
-                        <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'>
+                        <svg class="menu" xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'>
                             <title>ionicons-v5-j</title>
-                            <line x1='80' y1='160' x2='432' y2='160' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
-                            <line x1='80' y1='256' x2='432' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
-                            <line x1='80' y1='352' x2='432' y2='352' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                            <line x1='80' y1='160' x2='432' y2='160' style='fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                            <line x1='80' y1='256' x2='432' y2='256' style='fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                            <line x1='80' y1='352' x2='432' y2='352' style='fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
                         </svg>
                     </button>
                     <h2 class="title">
