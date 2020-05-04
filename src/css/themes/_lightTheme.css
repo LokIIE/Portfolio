@@ -1,4 +1,4 @@
-:root[data-theme="light"] {
+:root body[theme="light"] {
     --primary-color: #f7fafc;
     --secondary-color:#bbe1fa;
     --primary-text-color: #0f4c75;

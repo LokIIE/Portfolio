@@ -20,7 +20,7 @@ class Menu extends LitElement {
                 #sidenav-container {
                     position: fixed;
                     font-size: 1rem;
-                    height: 100%;
+                    height: inherit;
                     top: 0;
                     left: 0;
                     padding-top: 52px;
@@ -58,7 +58,7 @@ class Menu extends LitElement {
                     pointer-events: auto;
                     position: absolute;
                     width: 250px;
-                    height: 100%;
+                    height: inherit;
                     display: flex;
                     flex-flow: column;
                 }
@@ -96,7 +96,9 @@ class Menu extends LitElement {
                 }
 
                 #menu-content {
-                    display: block;
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: space-between;
                     height: 100%;
                     overflow: hidden;
                 }
@@ -150,6 +152,11 @@ class Menu extends LitElement {
                         transform: scale(0.9);
                     }
                 }
+
+                .menu-bottom {
+                    margin: 1rem auto;
+                    width: 60%;
+                }
             </style>
 
             <nav id="sidenav-container" class="${this.open ? 'open' : ''}">
@@ -159,30 +166,35 @@ class Menu extends LitElement {
                         <div class="subject">Portfolio</div>
                     </div>
                     <div id="menu-content">
-                        <ul class="pages">
-                            <li class="level-one"><a href="./list.html">Projets</a></li>
-                            <li class="level-two"><a href="./portfolio.html">Portfolio</a></li>
-                            <li class="level-two"><a href="./iiens.html">IIEns</a></li>
-                            <li class="level-two"><a href="./custom-yaac.html">Custom YAAC</a></li>
-                            <li class="level-one"><a href="http://magadeva.iiens.net/cv-2020.pdf" target="_blank" rel="noreferrer">CV</a></li>
-                        </ul>
-                        <ul class="ext-pages">
-                            <li class="level-one">
-                                <link-linkedin href="https://www.linkedin.com/in/smagadevane/" title="Check this awesome guy's profile on Linkedin !">
-                                    LinkedIn
-                                </link-linkedin>
-                            </li>
-                            <li class="level-one">
-                                <link-github href="https://github.com/LokIIE" title="Check out my projects on Github !">
-                                    Mon Github
-                                </link-github>
-                            </li>
-                            <li class="level-one">
-                                <link-gitlab href="https://gitlab.com/LokIIE" title="Visit my Gitlab to check what I'm working on !">
-                                    Mon Gitlab
-                                </link-gitlab>
-                            </li>
-                        </ul>
+                        <div>
+                            <ul class="pages">
+                                <li class="level-one"><a href="./list.html">Projets</a></li>
+                                <li class="level-two"><a href="./portfolio.html">Portfolio</a></li>
+                                <li class="level-two"><a href="./iiens.html">IIEns</a></li>
+                                <li class="level-two"><a href="./custom-yaac.html">Custom YAAC</a></li>
+                                <li class="level-one"><a href="http://magadeva.iiens.net/cv-2020.pdf" target="_blank" rel="noreferrer">CV</a></li>
+                            </ul>
+                            <ul class="ext-pages">
+                                <li class="level-one">
+                                    <link-linkedin href="https://www.linkedin.com/in/smagadevane/" title="Check this awesome guy's profile on Linkedin !">
+                                        LinkedIn
+                                    </link-linkedin>
+                                </li>
+                                <li class="level-one">
+                                    <link-github href="https://github.com/LokIIE" title="Check out my projects on Github !">
+                                        Mon Github
+                                    </link-github>
+                                </li>
+                                <li class="level-one">
+                                    <link-gitlab href="https://gitlab.com/LokIIE" title="Visit my Gitlab to check what I'm working on !">
+                                        Mon Gitlab
+                                    </link-gitlab>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="menu-bottom">
+                            <theme-switch></theme-switch>
+                        </div>
                     </div>
                 </div>
             </nav>
