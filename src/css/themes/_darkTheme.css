@@ -1,0 +1,36 @@
+:root body[theme="dark"] {
+    --primary-color: #1b262c;
+    --secondary-color:#0f4c75;
+    --primary-text-color: #bbe1fa;
+    --secondary-text-color: #3282b8;
+    
+    --body-bg: var(--primary-color);
+    --text-color: var(--primary-text-color);
+
+    --title-box-border-color:  var(--primary-text-color);
+    --title-box-bg-color: var(--primary-color);
+
+    --arrow-btn-bg-color: var(--primary-color);
+    --arrow-btn-border-color: var(--primary-text-color);
+    --arrow-color: var(--primary-text-color);
+
+    --header-bg: var(--primary-color);
+    --menu-ic-color: white;
+    --menu-backdrop-bg: black;
+    --menu-bg: var(--primary-color);
+    --menu-item-bg-hover: var(--secondary-color);
+
+    --hero-bg: var(--secondary-color);
+    --hero-title-color: var(--primary-text-color);
+    --hero-title-brightness: 1;
+    --hero-content-color: var(--primary-text-color);
+    --hero-content-brightness: 0.9;
+
+    --card-bg: var(--secondary-text-color);
+    --card-border-color: transparent;
+
+    --stack-pills-bg: var(--secondary-color);
+    --stack-pills-text: var(--primary-text-color);
+
+    --svg-fill-logo-github: white;
+}

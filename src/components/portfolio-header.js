@@ -14,13 +14,15 @@ class PortfolioHeader extends LitElement {
         return html `
             <style>  
                 header {
-                    background-color: #f7fafc;
+                    background: var(--header-bg);
                     min-height: 52px;
                     min-width: 250px;
                     position: fixed;
                     top: 0;
                     width: 100%;
                     z-index: 100;
+                    border-bottom: 1px solid var(--secondary-color);
+                    z-index: 20000;
                 }
 
                 header > .content {
@@ -64,24 +66,29 @@ class PortfolioHeader extends LitElement {
                     justify-content: space-between;
                 }
 
-                svg {
+                svg.menu {
                     vertical-align: bottom;
+                    stroke: var(--menu-ic-color);
                 }
                 
                 .content > * {
                     padding-left: 16px;
                     padding-right: 16px;
                 }
+
+                portfolio-menu {
+                    height: calc(100% - 52px);
+                }
             </style>
 
             <header>
                 <div class="content">
                     <button type="button" class="menu" @click="${this.onMenuClick}">
-                        <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'>
+                        <svg class="menu" xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 512 512'>
                             <title>ionicons-v5-j</title>
-                            <line x1='80' y1='160' x2='432' y2='160' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
-                            <line x1='80' y1='256' x2='432' y2='256' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
-                            <line x1='80' y1='352' x2='432' y2='352' style='fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                            <line x1='80' y1='160' x2='432' y2='160' style='fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                            <line x1='80' y1='256' x2='432' y2='256' style='fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
+                            <line x1='80' y1='352' x2='432' y2='352' style='fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px'/>
                         </svg>
                     </button>
                     <h2 class="title">
@@ -95,12 +102,16 @@ class PortfolioHeader extends LitElement {
                 </div>
             </header>
 
-            <portfolio-menu ?open=${this.isMenuOpen}></portfolio-menu>
+            <portfolio-menu ?open=${this.isMenuOpen} @menu-closed="${this.onMenuClosed}"></portfolio-menu>
         `;
     }
 
     onMenuClick() {
         this.isMenuOpen = !this.isMenuOpen;
+    }
+
+    onMenuClosed() {
+        this.isMenuOpen = false;
     }
 }
 

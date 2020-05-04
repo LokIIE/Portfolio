@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Custom portfolio for my projects",
   "main": "./dist/index.html",
   "scripts": {
@@ -8,8 +8,7 @@
     "tailwind": "npx tailwind build src/css/main.pcss -o dist/css/main.css",
     "postcss-dev": "postcss src/css/main.pcss -o dist/css/main.css",
     "postcss-prod": "cross-env NODE_ENV=production postcss src/css/main.pcss -o dist/css/main.css",
-    "parcel-dev": "echo \"parcel uses production as target per default, use command 'npm run parcel'",
-    "parcel": "parcel build src/index.html --no-cache --no-source-maps --public-url .",
+    "parcel": "parcel build src/index.html --no-cache --public-url .",
     "webpack": "webpack && rm dist/*.pcss && truncate -s 0 dist/*.js"
   },
   "repository": {
