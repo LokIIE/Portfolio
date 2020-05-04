@@ -1,4 +1,4 @@
-:root[data-theme="dark"] {
+:root body[theme="dark"] {
     --primary-color: #1b262c;
     --secondary-color:#0f4c75;
     --primary-text-color: #bbe1fa;

@@ -22,7 +22,7 @@ class PortfolioHeader extends LitElement {
                     width: 100%;
                     z-index: 100;
                     border-bottom: 1px solid var(--secondary-color);
-                    z-index: 10000;
+                    z-index: 20000;
                 }
 
                 header > .content {
@@ -74,6 +74,10 @@ class PortfolioHeader extends LitElement {
                 .content > * {
                     padding-left: 16px;
                     padding-right: 16px;
+                }
+
+                portfolio-menu {
+                    height: calc(100% - 52px);
                 }
             </style>
 

@@ -1,6 +1,7 @@
 import "../components/link-github";
 import "../components/link-gitlab";
 import "../components/link-linkedin";
+import "../components/theme-switch";
 import "../components/portfolio-header";
 import "../components/menu.js";
 
